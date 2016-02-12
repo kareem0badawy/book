@@ -1,0 +1,29 @@
+.page
+{
+   /* background-color: #2b669a;*/
+
+    padding: 1px;
+}
+h1.title
+{
+text-align: center;
+    color: red;
+
+}
+.table th,
+.table td
+{
+    color: #000000;
+    text-align: center;
+}
+.table tr,
+.table td
+{
+    color: #000000;
+    text-align: center;
+}
+/*
+.table tr:hover
+{
+    background-color: #2b669a;
+}*/

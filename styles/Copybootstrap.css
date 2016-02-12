@@ -1,0 +1,75 @@
+.navbar-inverse
+{
+    background-color: #222;
+    border-color: #080808;
+
+
+}
+.navbar-nav
+{
+        float: right;
+        margin-right:150px;
+}
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover
+{
+    background-color: #0055ff;
+    border-radius: 10%;
+}
+.navbar-inverse .navbar-nav>li>a
+{
+    color: #BBB;
+}
+.navbar-nav>li>a
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
+
+{
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 30px;
+}
+.navbar-inverse .navbar-brand span
+{
+    color: #0055ff;
+}
+
+
+/*Show all*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even)
+{background-color: #36648b}
+
+th {
+    background-color: #f5fef1;
+    color: #000000;
+
+}
+tr:hover {
+    background-color: #ffff99;
+}
+
+
+/*Style Add New*/
+
+.form-horizontal .control-label
+{
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+    color: #000;
+}
