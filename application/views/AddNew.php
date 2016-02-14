@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
 
-    <title>Cover Template for Bootstrap</title>
+    <title>Library</title>
 
     <!-- Bootstrap core CSS -->
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url('styles/bootstrap.css')?>">
@@ -31,9 +31,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo site_url("Welcome/index")?>"><span class="glyphicon glyphicon-home">Home</span></a></li>
-                <li><a href="<?php echo site_url("Welcome/ShowAll")?>"><span class="glyphicon glyphicon-eye-open">Show All</span></a></li>
-                <li><a href="<?php echo site_url("Welcome/AddNew")?>"><span class="glyphicon glyphicon-paperclip">Add New</span></a></li>
+                <li class="active"><a href="<?php echo site_url("Welcome/index")?>">Home</a></li>
+                <li><a href="<?php echo site_url("Welcome/ShowAll")?>">Show All</a></li>
+                <li><a href="<?php echo site_url("Welcome/AddNew")?>">Add New</a></li>
             </ul>
 
 

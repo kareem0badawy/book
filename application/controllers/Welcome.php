@@ -18,15 +18,46 @@ class Welcome extends CI_Controller
 		$this->load->view("index",$data);
 	}
 
-	public function ShowAll()
-	{
-		$book = $this->My_model->showallbook('id');
-		$data['book'] = $book;
-		$this->load->view("ShowAll",$data);
 
+	public function active($book_id)
+	{
+		$this->My_model->active($book_id);
+		return redirect('Welcome/index');
+	}
+	public function unactive($book_id){
+		$this->My_model->unActive($book_id);
+		return redirect('Welcome/index');
+	}
+	
+	public function updatebook()
+	{
+		$data['id']=$this->uri->segment(3);
+		$edit=$this->input->post('edit');
+		if(!empty($edit))
+		{
+			
+			$update= array(
+				'title'=>$this->input->post('title'),
+				'author'=>$this->input->post('author')
+				);
+			$this->My_model->update($this->uri->segment(3),$update);
+			return redirect('Welcome/index');
+		}
+		
+		$data['result'] =$this->My_model->getid($this->uri->segment(3));
+		$this->load->view('edit',$data);
+	}
+	public function delete()
+	{
+		$id = $this->uri->segment(3);
+		if($this->My_model->delete($id))
+		{
+			return redirect('Welcome/index');
+		}
 	}
 
-	public function AddNew()
+
+		public function AddNew()
 	{
 
 		$this->load->view('AddNew');
@@ -52,13 +83,7 @@ class Welcome extends CI_Controller
 			}
 			if(isset($add))
 			{
-				$massage='<div class="alert alert-success" role="alert" style="font-size:large">' . $add . '</div>';
-
-			echo $massage ;
-
-				//how to make delete Session???
-			//	$this->session->unset_userdata($add);
-
+			echo '<div class="alert alert-success" role="alert" style="font-size:large">' . $add . '</div>';
 			}
 			if(isset($errors)){
 				foreach($errors as $error)
@@ -70,29 +95,17 @@ class Welcome extends CI_Controller
 		}
 	}
 
-	public function test()
-	{
-		$this->load->library('form_validation');
-		$result='';
-		if($this->input->post('submit'))
-		{
-			$this->form_validation->set_rules('firstname','Username','required');
 
-			if ($this->form_validation->run())
-			{
-				//echo $result='<div class="alert alert-danger" role="alert" style="font-size:large">'.'</div>';
-				echo $result='true';
-				//$this->load->view('myform');
-			}
-			else
-			{
-				//echo $result='<div class="alert alert-danger" role="alert" style="font-size:large">'.'</div>';
-				echo$result='Flase';
-			}
-		}
-		$data['result']=$result;
-		$this->load->view('Test',$data);
+	public function ShowAll()
+	{
+		$book = $this->My_model->showallbook('id');
+		$data['book'] = $book;
+		$this->load->view("ShowAll",$data);
+
 	}
+
+
+
 
 
 }
