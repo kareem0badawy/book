@@ -8,7 +8,7 @@ class My_model extends CI_Model
         parent::__construct();
         // Your own constructor code
     }
-    public function showdata($id,$active)
+    public function showData($id,$active)
     {
        // $this->db->order_by($id);
 
@@ -29,28 +29,9 @@ class My_model extends CI_Model
         $this->db->where('id',$book_id);
         $this->db->update('Books',['active'=>0]);
     }
-    /*
-      public function edit($id,$title,$author)
-      {  $data = array
-        (
-            $title=$_POST['title'],
-            $author=$_POST['author'],
-            );
-       $this->db->get('Books');
-       $this->db->where('id',$id);
-       $this->db->update('Books', $data);
-        //$this->db->update('Books');
-         //$this->db->get('Books');
-       //$this->db->where('id',$id);
-       // $data['id']=$id;
-     //   $data['title']=$title;
-       // $data['author']=$author;
-        //$this->db->update('Books',$data);
-    }
 
-*/
     //Fetch data From Title,Author
-    public function getid($id)
+    public function get_id($id)
     {
         $query=$this->db->get_where('Books',array('id' =>$id));
 
@@ -72,14 +53,14 @@ class My_model extends CI_Model
 
     }
 
-    public function addtbooks($title,$author,$active)
+    public function addBooks($title,$author,$active)
     {
         $data['title']=$title;
         $data['author']=$author;
         $data['active']=$active;
         $this->db->insert('Books',$data);
     }
-    public function showallbook($id)
+    public function showAllBook($id)
     {
         $this->db->select('id,title,author');
         $query=$this->db->get('Books');

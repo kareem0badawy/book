@@ -13,7 +13,7 @@ class Welcome extends CI_Controller
 
 	public function index()
 	{
-		$show = $this->My_model->showdata('id','active');
+		$show = $this->My_model->showData('id','active');
 		$data['show']=$show;
 		$this->load->view("index",$data);
 	}
@@ -24,12 +24,12 @@ class Welcome extends CI_Controller
 		$this->My_model->active($book_id);
 		return redirect('Welcome/index');
 	}
-	public function unactive($book_id){
+	public function unActive($book_id){
 		$this->My_model->unActive($book_id);
 		return redirect('Welcome/index');
 	}
 	
-	public function updatebook()
+	public function updateBook($id)
 	{
 		$data['id']=$this->uri->segment(3);
 		$edit=$this->input->post('edit');
@@ -40,11 +40,11 @@ class Welcome extends CI_Controller
 				'title'=>$this->input->post('title'),
 				'author'=>$this->input->post('author')
 				);
-			$this->My_model->update($this->uri->segment(3),$update);
+			$this->My_model->update($id,$update);
 			return redirect('Welcome/index');
 		}
 		
-		$data['result'] =$this->My_model->getid($this->uri->segment(3));
+		$data['result'] =$this->My_model->get_id($this->uri->segment(3));
 		$this->load->view('edit',$data);
 	}
 	public function delete()
@@ -57,7 +57,7 @@ class Welcome extends CI_Controller
 	}
 
 
-		public function AddNew()
+		public function addNew()
 	{
 
 		$this->load->view('AddNew');
@@ -77,7 +77,7 @@ class Welcome extends CI_Controller
 			}
 			else
 			{
-				$add=$this->My_model->addtbooks($title,$author,$active);
+				$add=$this->My_model->addBooks($title,$author,$active);
 				$add="The book successfully Added ✔️✔✍️";
 
 			}
@@ -96,7 +96,7 @@ class Welcome extends CI_Controller
 	}
 
 
-	public function ShowAll()
+	public function showAll()
 	{
 		$book = $this->My_model->showallbook('id');
 		$data['book'] = $book;
